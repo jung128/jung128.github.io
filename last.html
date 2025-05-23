@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        width: 768px;
+        margin: 0 auto;
+        list-style: none;
+      }
+      main {
+        background-image: url(./img.jpg);
+        background-size: cover;
+        width: 768px;
+        height: 120vh;
+        margin: 0 auto;
+        /* display: none; */
+      }
+      .login {
+        margin: 10px 520px;
+        width: 30%;
+        padding: 10px 10px;
+        text-align: center;
+        font-size: 1.5rem;
+        border: none;
+        border-radius: 5px;
+      }
+      .under > h1 {
+        width: 700px;
+        font-size: 6rem;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 600px;
+        margin-bottom: 30px;
+        padding: 30px 1px;
+        background-color: #222;
+        color: #eee;
+        border-radius: 10px;
+      }
+      .under > #word {
+        padding: 50px 160px;
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+        width: 50%;
+        border-radius: 10px;
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+      .under > p {
+        text-align: center;
+        font-size: 2rem;
+        color: #eee;
+      }
+
+      /* 2번째 페이지 */
+      section {
+        height: 120vh;
+        background-color: #222;
+        display: none;
+      }
+      section > h1 {
+        text-align: center;
+        padding: 20px 50px;
+        background-color: #999;
+        color: #eee;
+        width: 80%;
+        margin: 0 auto;
+        border-radius: 10px;
+        font-size: 4rem;
+      }
+
+      section > .view > .input > #keyword {
+        position: relative;
+        top: 700px;
+        width: 39.5%;
+        padding: 40px 10px;
+        border: none;
+        border-radius: 5px;
+        position: fixed;
+          margin: 0 auto;
+        display: block;
+        font-size: 1.5rem;
+      }
+      .view > .chat > li:nth-child(odd) {
+        width: 80%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        font-size: 3rem;
+        background-color: #999;
+        position: relative;
+        top: 30px;
+        left: 30px;
+        border-radius: 10px;
+        gap: 2rem;
+        border-radius: left 50%;
+      }
+      .view > .chat > li:nth-child(even) {
+        width: 80%;
+        margin: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 3rem;
+        background-color: #999;
+        position: relative;
+        top: 60px;
+        left: 120px;
+        border-radius: 10px;
+        gap: 2rem;
+        text-align: right;
+        margin-bottom: 50px;
+      }
+      .view > .chat > li:nth-child(odd)::before {
+        content: "";
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-image: url(./img2.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 50%;
+      }
+      .view > .chat > li:nth-child(even)::after {
+        content: "";
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-image: url(./me.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: cenlter;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <button class="login">로그인</button>
+      <div class="under">
+        <h1>끝말잇기 게임</h1>
+        <input type="text" id="word" placeholder="낱말을 입력해 시작" />
+        <p>입력 후 Enter 키를 눌러 시작하세요</p>
+      </div>
+    </main>
+
+    <!-- 2페이지 -->
+    <section>
+      <h1>끝말잇기 게임</h1>
+      <div class="view">
+        <ul class="chat">
+        </ul>
+        <div class="input">
+          <input type="text" id="keyword" />
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const $word = document.querySelector("#word"); //첫 화면 입력 창
+      const $wd = document.querySelector("#keyword"); //낱말 입력 창
+      const $wdLi = document.querySelector(".chat"); //리스트
+      const $mainSection = document.querySelector("main"); // 첫 번째 화면
+      const $gameSection = document.querySelector("section"); // 두 번째 화면
+
+      //입력하면 화면 1에서 2로 넘어가기
+      $word.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+          const elem = $word.value; //처음 입력한 값
+          // console.log(elem);
+          $mainSection.style.display = "none";
+          $gameSection.style.display = "block";
+
+          //내가 처음에 입력한 데이터 가져와서 게임 시작
+        //   const $gamestod = document.querySelector(".chat>li");
+        //   $gamestod.textContent = `${elem}`;
+        createlist(elem);
+        }
+      });
+      //다음 내차례
+      $wd.addEventListener("keypress", function (En) {
+        if (En.key === "Enter") {
+          const input = $wd.value;
+          console.log(input);
+          const $gamestev = document.querySelector(".chat>li:nth-child(2)");
+          $gamestev.textContent = `${input}`;
+        }
+      });
+      const createlist = (list) => {
+          const elemLi = document.createElement("li");
+          elemLi.textContent = list;
+          $wdLi.appendChild(elemLi);
+          
+        };
+     const handleWordInput = ()=>{
+        const keyword = $wd.value.trim();
+        if(keyword === ''){
+            alert("낱말을 입력하세요");
+            return;
+        }
+        const last = $wdLi.lastElementChild.textContent;
+        console.log( last );
+        const lastword = last[last.length-1];
+        const firstword = keyword[0];
+        if( lastword === firstword ){
+        createlist(keyword);
+        } else {
+            alert(`아니야 "${lastword}"로 시작해`);
+        }
+        $wd.value;
+        $wd.focus();
+        }
+            
+        $wd.addEventListener("keydown",(e)=>{
+            if( e.key ==='Enter'){
+                handleWordInput();
+            }
+        })
+    </script>
+  </body>
+</html>
