@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>이미지 캐러셀</title>
+    <style>
+      @font-face {
+        font-family: "Cafe24Lovingu";
+        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Lovingu.woff2")
+          format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+    font-family: 'Hahmlet-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SunBatang-Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/SunBatang-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MaruBuriExtraLight';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-ExtraLight.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-ExtraLight.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-ExtraLight.woff2) format("woff2"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-ExtraLight.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-ExtraLight.ttf) format("truetype");
+}
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        margin-top: 8rem;
+        background-image: url(./images/rback1.jpg);
+      }
+      .slider {
+        width: 913px;
+        overflow: hidden;
+      }
+      .track {
+        width: 3652px;
+        display: flex;
+        transition: transform 1s ease-in-out;
+      }
+
+      button {
+        padding: 8px 15px;
+        font-size: 2rem;
+        text-align: center;
+        margin: 0 10px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      .onepg {
+        width: 913px;
+        height: 681px;
+        opacity: 1;
+        transition: opacity 1s;
+        background-color: #fff;
+
+        /* display: none; */
+      }
+      .onepg > .up {
+        display: flex;
+      }
+      .onepg > .up > h1 {
+        margin-left: 50px;
+        font-size: 3rem;
+        margin-top: 3rem;
+        /* width: 200px; */
+      }
+      .onepg > .up > #me {
+        width: 265px;
+        height: 335px;
+        margin-left: 4rem;
+        margin-top: 4rem;
+      }
+      .onepg > .up > .me {
+        width: 25%;
+        margin-top: 12rem;
+        margin-left: 4rem;
+      }
+      .onepg > .up > .me > h2 {
+        font-size: 1rem;
+        margin-bottom: 20px;
+      }
+      .onepg > .up > .me > p {
+        font-size: 0.8rem;
+      }
+      .onepg > .up > .entp > img {
+        width: 88px;
+        height: 88px;
+        margin-top: 12rem;
+        /* margin-right: 4rem; */
+        margin-left: none;
+      }
+      .onepg > .up > .entp > p {
+        text-align: center;
+      }
+
+      .onepg > .down {
+        display: flex;
+        justify-content: space-around;
+      }
+      .onepg > .down > .list {
+        margin-top: 2rem;
+      }
+      .onepg > .down > .list > h2 {
+        text-align: left;
+        font-size: 1rem;
+        border-bottom: 1px solid #222;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+      }
+      .onepg > .down > .list > p {
+        text-align: left;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
+      .onepg > .down > .list > ul > li {
+        list-style: none;
+        font-size: 0.8rem;
+      }
+      .onepg > .down > .list > .ile {
+        width: 120px;
+      }
+      .onepg > .down > .list > .ile > img {
+        width: 50px;
+      }
+
+      .twopg {
+        background-image: url(./images/back333.jpg);
+        width: 913px;
+        height: 681px;
+        /* opacity: 0.3; */
+        /* transition: opacity 1s; */
+
+        /* display: none; */
+      }
+      .twopg > .jasin {
+        margin-top: 8rem;
+        margin-left: 2rem;
+        position: relative;
+        bottom: 50px;
+      }
+      .twopg > .jasin > h2 {
+        font-size: 2.5rem;
+        width: 130px;
+        height: 50px;
+        text-align: center;
+        background-color: #eee;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        padding-bottom: 5px;
+        font-family: 'MaruBuriExtraLight';
+      }
+      .twopg > .jasin > h3 {
+        width: 150px;
+        height: 30px;
+        text-align: center;
+        background-color: #eee;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        padding-top: 3px;
+        font-family: 'MaruBuriExtraLight';
+      }
+      .twopg > .jasin > ul > li {
+        width: 160px;
+        height: 17px;
+        text-align: left;
+        background-color: #eee;
+        padding-left: 5px;
+        list-style: none;
+        border-radius: 5px;
+        padding-bottom: 5px;
+        font-family: 'GowunBatang-Regular';
+      }
+      .twopg > .twoimgs > img:nth-child(1) {
+        width: 150px;
+        height: 170px;
+        border-top-right-radius: 40%;
+        position: relative;
+        bottom: 360px;
+        left: 150px;
+        z-index: 2;
+      }
+      .twopg > .twoimgs > img:nth-child(2) {
+        width: 217px;
+        height: 327px;
+        border-top-left-radius: 45%;
+        position: relative;
+        bottom: 470px;
+        left: 100px;
+      }
+      .twopg > .twoimgs > img:nth-child(3) {
+        width: 147px;
+        height: 175px;
+        border-top-left-radius: 40%;
+        position: relative;
+        bottom: 270px;
+        right: 50px;
+      }
+      .twopg > .twoimgs > img:nth-child(4) {
+        width: 342px;
+        height: 526px;
+        border-top-right-radius: 45%;
+        position: relative;
+        bottom: 270px;
+        right: 30px;
+      }
+      .twopg > .top{
+        position: relative;
+        bottom: 863px;
+        z-index: 20;
+        width: 914px;
+        height: 10px;
+      }
+      .twopg > .bottom{
+        position: relative;
+        bottom: 213px;
+        z-index: 20;
+        width: 914px;
+        height: 10px;
+      }
+      .twopg > .right{
+        width: 10px;
+        position: relative;
+        height: 1700px;
+        bottom: 1800px;
+        left: 903px;
+        z-index: 20;
+        
+      }
+      .twopg > .left{
+        position: relative;
+        width: 10px;
+        height: 1700px;
+        bottom: 1800px;
+        right: 15px;
+        z-index: 20;
+        
+      }
+
+
+      /* 3페이지 */
+
+      .threepg {
+        background-image: url(./images/back222.jpg);
+        width: 913px;
+        height: 681px;
+        /* opacity: 0.3; */
+        transition: 1s;
+      }
+      .threepg > h1 {
+        margin-top: 2rem;
+        font-size: 6rem;
+        text-align: center;
+        font-family: "Cafe24Lovingu";
+        color: #423f24;
+        position: relative;
+        z-index: 10;
+        
+      }
+      .threepg > .thimg > img:nth-child(1) {
+        width: 291px;
+        height: 418px;
+        transform: rotate(10deg);
+        position: relative;
+        top: 80px;
+        left: 50px;
+        z-index: 2;
+      }
+      .threepg > .thimg > img:nth-child(2) {
+        width: 335px;
+        height: 392px;
+        position: relative;
+        bottom: 20px;
+        z-index: 3;
+      }
+      .threepg > .thimg > img:nth-child(3) {
+        width: 291px;
+        height: 391px;
+        position: relative;
+        bottom: 360px;
+        left: 600px;
+        z-index: 2;
+        border-radius: 10px;
+      }
+      .threepg > p {
+        /* padding: 10px 30px; */
+        background-color: #eee;
+        width: 60%;
+        height: 13%;
+        font-size: 3.5rem;
+        position: relative;
+        bottom: 138   0px;
+        left: 180px;
+        text-align: center;
+        z-index: 4;
+        font-family: 'Hahmlet-Regular';
+        color: #423f24;
+        padding-top: 5px;
+        border-radius: 5px;
+        
+      }
+      .threepg > .thimg > .onesc {
+        width: 320px;
+        height: 440px;
+        background-color: #222;
+        position: relative;
+        bottom: 756px;
+        left: 52px;
+        transform: rotate(10deg);
+      }
+      .threepg > .thimg > .twosc {
+        width: 300px;
+        height: 400px;
+        background-color: #222;
+        position: relative;
+        bottom: 1204px;
+        left: 591px;
+        border-radius: 10px;
+      }
+      .threepg > .mar{
+        position: relative;
+        bottom: 1805px;
+        left: 600px;
+        transform: rotate(-10deg);
+        width: 80px;
+      }
+      .threepg > .mar1{
+        position: relative;
+        bottom: 1775px;
+        left: 20px;
+        transform: rotate(-20deg);
+        width: 80px;
+      }
+
+
+      /* 4페이지 */
+
+      .fourpg {
+        background-image: url(./images/back333.jpg);
+        width: 913px;
+        height: 681px;
+        /* opacity: 0.3; */
+        transition: 1s;
+      }
+      .fourpg > .mainft{
+        display: flex;
+        margin: 0 auto;
+        margin-top: 10px;
+        border-bottom: 1px solid #777;
+        padding-bottom: 10px;
+        color: #333;
+        font-size: 1rem;
+        font-family: 'Hahmlet-Regular';
+      }
+      .fourpg > .mainft > p:nth-child(1){
+        margin-left: 25px;
+        margin-right: 100px;
+      }
+      .fourpg > .mainft > p:nth-child(2){
+        margin-right: 330px;
+      }
+      .fourpg > .mainft > p:nth-child(3){
+        margin-right: 70px;
+      }
+      .fourpg > .mainft > p:nth-child(4){
+        margin-right: 70px;
+      }
+      .fourpg > h1{
+        font-size: 2.5rem;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #777;
+        padding-bottom: 20px;
+        font-family: 'GmarketSansMedium';
+      }
+      .fourpg > .p3img{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 25px;
+        margin-top: 30px;
+      }
+      .fourpg > .p3img > .p3mix > img{
+        width: 196px;
+        height: 352px;
+      }
+      .fourpg > .p3img > .p3mix > h2{
+        font-size: 1.5rem;
+        width: 196px;
+        margin: 5px 0;
+        color: #222;
+        font-family: 'SunBatang-Light';
+      }
+      .fourpg > .p3img > .p3mix > p{
+        font-size: 1rem;
+        width: 196px;
+        color: #333;
+        font-family: 'GowunBatang-Regular';
+      }
+    </style>
+  </head>
+  <body>
+    <button class="prev">◀ 이전</button>
+    <div class="slider">
+      <!-- 1페이지 -->
+      <div class="track">
+        <div class="onepg pg">
+          <div class="up">
+            <h1>I AM</h1>
+            <img src="./images/mainimg.jfif" id="me" alt="나의 소개 사진" />
+            <div class="me">
+              <h2>간단한 나의 소개</h2>
+              <p>
+                안녕하세요 저는 20살이고 <br />
+                아직 부족한게 많아서 <br />
+                더 배우고 싶습니다 열심히 하겠습니다
+              </p>
+            </div>
+            <div class="entp">
+              <img src="./images/entp.jfif" alt="entp 이미지" />
+              <p>ENTP</p>
+            </div>
+          </div>
+          <div class="down">
+            <div class="list">
+              <h2>나의 장점과 강점</h2>
+              <p>-장점-</p>
+              <ul>
+                <li>1.참을성과 인내심이 있다</li>
+                <li>2.감정 컨트롤을 잘한다</li>
+                <li>3.잔머리가 좋다</li>
+                <li>4.나의 부족함을 잘 안다</li>
+              </ul>
+            </div>
+            <div class="list">
+              <h2>나의 하루 루틴</h2>
+              <p>-평일-</p>
+              <ul>
+                <li>● 8시 기상</li>
+                <li>● 9:30~6:00 수업 듣기</li>
+                <li>● 6:00~7:30 헬스장</li>
+                <li>● 8:00 귀가 후 저녁</li>
+                <li>● 9:00~10:00 산책,자유시간</li>
+                <li>● 10:00~11:00 책읽기</li>
+                <li>● 11:00~11:30 씻고 수면</li>
+              </ul>
+            </div>
+            <div class="list">
+              <h2>내가 되고 싶은 모습</h2>
+              <p>돈을 열심히 벌고 모아서<br />나중에 부족하지 않게 사는것</p>
+            </div>
+            <div class="list">
+              <h2>내가 가진 스킬</h2>
+              <div class="ile">
+                <img src="./images/ps.png" alt="포토샵 사진" />
+                <img src="./images/ad.png" alt="일러스트 사진" />
+                <img src="./images/html.png" alt="html 사진" />
+                <img src="./images/css.png" alt="css 사진" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2페이지 -->
+
+        <div class="twopg pg">
+          <div class="jasin">
+            <h2>정회윤</h2>
+            <h3>내가 좋아 하는것</h3>
+            <ul>
+              <li>색 : 보라색</li>
+              <li>음식 : 고기,파스타</li>
+              <li>패션 : 마르지엘라</li>
+              <li>향수 : 톰포트,딥티크</li>
+            </ul>
+          </div>
+          <div class="twoimgs">
+            <img src="./images/food.jfif" alt="파스타 사진" />
+            <img src="./images/color.jpg" alt="보라색 사진" />
+            <img src="./images/ma1.jfif" alt="마르지엘라 사진" />
+            <img src="./images/TomFord.jfif" alt="톰포드 사진" />
+          </div>
+          <img src="./images/top.jfif" alt="위 테두리" class="top">
+          <img src="./images/bottom.jfif" alt="아래 테두리" class="bottom">
+          <img src="./images/right.jfif" alt="오 테두리" class="right">
+          <img src="./images/left.jfif" alt="왼 테두리" class="left">
+        </div>
+
+        <!-- 3페이지 -->
+
+        <div class="threepg pg">
+          <h1>Things I Like</h1>
+          <div class="thimg">
+            <img src="./images/vo.jfif" alt="보그 표지" />
+            <img src="./images/ch.jfif" alt="샤넬 향수 이미지" />
+            <img src="./images/ma.jpg" alt="마르지엘라" />
+            <div class="onesc"></div>
+            <div class="twosc"></div>
+          </div>
+          <img src="./images/ma3.jfif" alt="므르지에라 이미지" class="mar">
+          <img src="./images/mar5.png" alt="ma4" class="mar1">
+          <p>Vintage&Perfume</p>
+        </div>
+
+        <!-- 4페이지 -->
+        <div class="fourpg">
+          <div class="mainft">
+            <p>Feed</p>
+            <p>About</p>
+            <p>Words</p>
+            <p>Projects</p>
+            <p>Reportage</p>
+          </div>
+          <h1>내가 좋아하는 것들과 그 이유</h1>
+          <div class="p3img">
+            <div class="p3mix">
+              <img src="./images/autumm.jpg" alt="가을 이미지" />
+              <h2>가을</h2>
+              <p>따듯한 날씨와 감성 때문에 가장 좋아한다</p>
+            </div>
+            <div class="p3mix">
+              <img src="./images/paris.jfif" alt="파리 이미지" />
+              <h2>파리</h2>
+              <p>
+                유럽의 느낌과 분위기를 <br> 좋아 하는데 그중 가장 <br> 좋아하는게 파리다
+              </p>
+            </div>
+            <div class="p3mix">
+              <img src="./images/porest.jfif" alt="숲 이미지" />
+              <h2>숲</h2>
+              <p>숲의 냄새와 분위기 <br> 때문에 좋아한다</p>
+            </div>
+            <div class="p3mix">
+              <img src="./images/penguine.jfif" alt="펭귄 이미지" />
+              <h2>펭귄</h2>
+              <p>귀여워서</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="next">다음 ▶</button>
+
+    <script>
+      const slider = document.querySelector(".slider");
+      const track = document.querySelector(".track");
+      const prevButton = document.querySelector(".prev");
+      const nextButton = document.querySelector(".next");
+
+      const slideWidth = slider.offsetWidth;
+      const slides = document.querySelectorAll(".track > div");
+      const slideCount = slides.length;
+
+      let currentIndex = 0;
+
+      nextButton.addEventListener("click", () => {
+        if (currentIndex < slideCount - 1) {
+          currentIndex++;
+        } else {
+          currentIndex = 0;
+        }
+
+        track.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+      });
+
+      prevButton.addEventListener("click", () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+        } else {
+          currentIndex = slideCount - 1;
+        }
+
+        track.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+      });
+
+      track.style.transform = `translateX(0px)`;
+    </script>
+  </body>
+</html>
