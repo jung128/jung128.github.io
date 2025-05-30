@@ -1,0 +1,429 @@
+@charset "utf-8";
+@font-face {
+  font-family: "MinSans-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fbfaef;
+  font-family: "MinSans-Regular";
+  width: 100%;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+h2 {
+  width: 3%;
+  color: #b71212;
+  -webkit-text-stroke: 0.7px #b71212;
+  font-weight: bolder;
+  text-align: center;
+  margin-left: 30px;
+  margin-top: 15px;
+}
+.headermenu {
+  align-items: center;
+  text-align: center;
+  display: flex;
+  height: 110px;
+}
+.upmenu {
+  padding: 20px;
+  font-size: 2rem;
+  margin-top: 25px;
+}
+
+.upmenu > p {
+  margin: 7px;
+  font-size: 1rem;
+  width: 70px;
+}
+
+/* menu1 */
+
+.menu1 {
+  display: flex;
+  background-color: #001f05;
+  margin-top: 10px;
+}
+.menu1 > img {
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+}
+.menu1 > div > .mainfont {
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+  padding-left: 170px;
+  margin-top: 60px;
+  font-weight: bold;
+  letter-spacing: -10;
+}
+.menu1 > div > .subfont {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  padding-left: 170px;
+  line-height: 1.5;
+  letter-spacing: -10;
+}
+.menu1 > div > button {
+  width: 400px;
+  border: 1px solid white;
+  font-size: 2rem;
+  color: white;
+  background-color: transparent;
+padding: 20px 30px;
+  margin-top: 20px;
+  position: relative;
+  left: 230px;
+}
+.menu1 > div > button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.menu1 > div > .kh {
+  /* border-right: none; */
+  position: relative;
+  right: 50px;
+}
+
+
+.menu2 {
+  display: flex;
+  justify-content: flex-end;
+  height: 400px;
+  margin-top: 150px;
+}
+.menu2 > div {
+  width: 70%;
+  background-image: url(../images/6.png);
+  background-size: cover;
+}
+.menu2 > img {
+  width: 30%;
+}
+.menu2 > div > .mainfont {
+  color: white;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 70px;
+  font-weight: bold;
+  letter-spacing: -10;
+  color: #555;
+}
+.menu2 > div > .subfont {
+  color: white;
+  font-size: 1.8rem;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: -3px;
+  color: #777;
+}
+
+/* menu3 */
+.menu3 {
+  width: 100%;
+  margin-top: 200px;
+}
+.menu3 > .all {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 150px;
+  width: 80%;
+}
+.menu3 > h1 {
+  font-size: 4rem;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-top: -100px;
+  font-family: "PT Serif", serif;
+  width: 30%;
+  text-align: center;
+
+}
+.menu3 > .all > div {
+  align-items: center;
+}
+.menu3 > .all > div > img {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  display: flex;
+  justify-content: space-between;
+}
+.menu3 > .all > div:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.menu3 > .all > div > p {
+  text-align: center;
+  width: 100%;
+  font-size: 0.8rem;
+}
+.menu3 > .all > div > p {
+  font-family: "PT Serif", serif;
+}
+
+/* menu4 */
+
+.menu4 {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 100px;
+  height: 400px;
+}
+.menu4 > img {
+  width: 30%;
+  height: 400px;
+  object-fit: cover;
+}
+.menu4 > div {
+  background-image: url(../images/7.png);
+  width: 70%;
+  background-size: cover;
+}
+.menu4 > div > .mainfont {
+  color: white;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 50px;
+  font-weight: bold;
+  letter-spacing: -10;
+  color: #555;
+}
+.menu4 > div > .subfont {
+  color: white;
+  font-size: 1.8rem;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: -3px;
+  color: #777;
+}
+
+/* footer */
+footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 50px;
+}
+footer > div > .text {
+  font-weight: bolder;
+  margin: 30px 0;
+}
+footer > div > .icon {
+  font-size: 3rem;
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
+  margin: 0 auto;
+}
+footer > div > .line {
+  display: flex;
+  justify-content: space-between;
+  width: 55%;
+  margin: 0 auto;
+}
+footer > div > .line > p {
+  margin: 0;
+}
+footer > div > .line1 {
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    height: 100px;
+  }
+  h2 {
+    font-size: 1.3rem;
+    margin-right: 10px;
+    width: 10%;
+  }
+  .upmenu {
+    padding: 10px;
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+
+  .upmenu > p {
+    margin: 7px;
+    font-size: 1rem;
+    width: 70px;
+  }
+
+  .menu1 > img {
+    width: 300px;
+    height: 200px;
+  }
+  .menu1 > div > .mainfont {
+    font-size: 1rem;
+    padding-left: 35px;
+    margin-top: 30px;
+    font-weight: bold;
+  }
+  .menu1 > div > .subfont {
+    font-size: 0.7rem;
+    padding-left: 35px;
+    margin-top: 30px;
+    font-weight: bold;
+  }
+  .menu1 > div > button {
+    font-size: 0.7rem;
+    padding: 10px 15px;
+    margin-top: 10px;
+    position: relative;
+    left: 95px;
+    width: 30%;
+  }
+
+  .menu2 {
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-end;
+    height: 150px;
+  }
+  .menu2 > div {
+    width: 70%;
+    background-image: url(../images/6.png);
+    background-size: cover;
+  }
+  .menu2 > img {
+    width: 30%;
+  }
+  .menu2 > div > .mainfont {
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    letter-spacing: -10;
+    color: #555;
+  }
+  .menu2 > div > .subfont {
+    color: white;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: -1px;
+    color: #777;
+
+    margin: 0 auto;
+  }
+
+  .menu3 {
+    width: 100%;
+  }
+  .menu3 > .all {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 90%;
+  }
+  .menu3 > h1 {
+    position: relative;
+    top: 50px;
+    left: 300px;
+    font-size: 2rem;
+    margin-top: -20px;
+    padding-bottom: 40px;
+    font-family: "PT Serif", serif;
+  }
+  .menu3 > .all > div {
+    align-items: center;
+  }
+  .menu3 > .all > div > img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    display: flex;
+    justify-content: space-between;
+  }
+  .menu3 > .all > div:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .menu3 > .all > div > p {
+    text-align: center;
+    width: 100%;
+    font-size: 0.5rem;
+  }
+  .menu3 > .all > div > p {
+    font-family: "PT Serif", serif;
+  }
+
+  .menu4 {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+    height: 170px;
+  }
+  .menu4 > img {
+    width: 30%;
+    height: 170px;
+    object-fit: cover;
+  }
+  .menu4 > div {
+    background-image: url(../images/7.png);
+    width: 70%;
+    background-size: cover;
+  }
+  .menu4 > div > .mainfont {
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    letter-spacing: -10;
+    color: #555;
+  }
+  .menu4 > div > .subfont {
+    color: white;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: -1px;
+    color: #777;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+  footer > div > .text {
+    font-weight: bolder;
+    margin: 20px 0;
+  }
+  footer > div > .icon {
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    width: 15%;
+    margin: 0 auto;
+  }
+  footer > div > .line {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+  }
+  footer > div > .line > p {
+    margin: 0;
+  }
+  footer > div > .line1 {
+    margin-bottom: 15px;
+    margin-top: 0;
+  }
+}
