@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<title>구맹구 포트폴리오</title>
+<style>
+  /* 기본 스타일 */
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0; padding: 0;
+    background: #f9f9f9;
+    color: #333;
+  }
+  header {
+    background: #d37373;
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  header h1 {
+    margin-bottom: 0.3rem;
+    font-size: 2.5rem;
+  }
+  header p {
+    font-size: 1.1rem;
+    font-weight: 300;
+  }
+  main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  section {
+    margin-bottom: 3rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  }
+  h2 {
+    margin-bottom: 1rem;
+    color: #b22222;
+    border-bottom: 2px solid #d37373;
+    padding-bottom: 0.3rem;
+  }
+  p {
+    line-height: 1.6;
+  }
+
+  /* 기술 탭 메뉴 */
+  .tabs {
+    display: flex;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+  .tab {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+    background: #eee;
+    color: #555;
+    font-weight: 600;
+    transition: background 0.3s;
+    user-select: none;
+  }
+  .tab.active {
+    background: #b22222;
+    color: white;
+  }
+  .tab-content {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+  }
+
+  /* 기술 설명 */
+  .tech-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .tech-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
+  .tech-desc {
+    flex: 1;
+  }
+  .tech-desc h3 {
+    margin-bottom: 0.3rem;
+    color: #b22222;
+  }
+  .tech-desc p {
+    font-size: 0.95rem;
+    color: #444;
+  }
+  .contact-section {
+    margin-top: 20px;
+  }
+  .contact-section > .instagram{
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  /* 연락처 */
+  footer {
+    background: #222;
+    color: #eee;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  footer p {
+    margin: 0.3rem 0;
+  }
+  footer a {
+    color: #b22222;
+    text-decoration: none;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+  .portfolio-image { 
+            max-width: 100%; 
+            height: auto; 
+            width: 300px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 8px #bbb;
+        }
+        .portfolio-image:hover {
+            transform: scale(1.03);
+        }
+        .portfolio-section > p{
+            color: #888;
+        }
+
+
+
+  /* 반응형 */
+  @media (max-width: 600px) {
+    .tech-item {
+      flex-direction: column;
+      text-align: center;
+    }
+    .tech-item img {
+      margin-bottom: 1rem;
+    }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #f9f9f9; margin: 0; }
+        .container { max-width: 900px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px #eee; padding: 40px; }
+        h1 { text-align: center; color: #333; margin: 1px auto;}
+        .skills, .portfolio { margin-top: 40px; }
+        .skills-list {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 10px;
+            justify-content: flex-start;
+        }
+        .skill {
+            min-width: 90px;
+            font-size: 0.98em;
+        }
+        .portfolio-section > h2{
+            text-align: center;
+        }
+        .portfolio-section {
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 1px;
+        }
+        .portfolio-image {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            margin-top: 10px;
+        }
+  }
+  #frontend {
+    margin-top: 20px;
+  }
+.tech-desc > h3{
+    margin-top: 1px;
+}
+.tech-desc > p{
+    margin-top: 1px;
+}
+  .project-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* flex-wrap: wrap; */
+    /* grid-template-columns: repeat(1fr, 2fr); */
+    gap: 10px;
+    justify-content: center;
+    margin-top: 28px;
+  }
+
+.tab.active,.tab{
+    font-size: 0.8rem;
+}
+  .project-card {
+    background: linear-gradient(135deg, #f0f4ff 60%, #e0e7ff 100%);
+    border-radius: 14px;
+    box-shadow: 0 2px 8px #b6c6f933;
+    padding: 18px 16px 14px 16px;
+    width: 200px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+    border: 1.2px solid #dbeafe;
+  }
+  .project-card:hover {
+    box-shadow: 0 6px 24px #2563eb33;
+    transform: translateY(-4px) scale(1.03);
+    background: linear-gradient(135deg, #e0e7ff 40%, #f0f4ff 100%);
+    border-color: #2563eb;
+  }
+  .project-card-title {
+    font-size: 1.08em;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #2563eb;
+  }
+  .project-card-title span {
+    font-size: 1.3em;
+  }
+  .project-card ul {
+    margin: 0 0 0 14px;
+    padding: 0;
+    color: #2a3a6b;
+    font-size: 0.97em;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<header style="text-align:center; padding: 32px 0 18px 0; background: #f8fafc;">
+  <h1 id="typing-name" style="font-size:2.1em; color:#2563eb; margin-bottom:8px; letter-spacing:1px; font-weight:700; min-height:1.2em;"></h1>
+  <p id="fade-desc" style="font-size:1.08em; color:#444; margin:0; font-weight:400; opacity:0; transition:opacity 1.2s;">웹 개발자 & 그래픽 디자이너</p>
+</header>
+
+<main>
+  <section>
+    <h2>소개</h2>
+    <p>안녕하세요! 저는 프론트엔드와 자바 개발을 기반으로 그래픽 디자인(포토샵, 일러스트)까지 다룰 수 있는 멀티플레이어 개발자 구맹구입니다. 사용자 경험과 시각적 완성도를 모두 고려한 웹사이트를 제작합니다.</p>
+  </section>
+
+  <section>
+    <h2>기술 스택</h2>
+    <div class="tabs">
+      <div class="tab active" data-tab="frontend">프론트엔드</div>
+      <div class="tab" data-tab="java">Java</div>
+      <div class="tab" data-tab="photoshop">포토샵</div>
+      <div class="tab" data-tab="illustrator">일러스트</div>
+    </div>
+
+    <div id="frontend" class="tab-content active">
+      <div class="tech-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML5 아이콘" />
+        <div class="tech-desc">
+          <h3>HTML5</h3>
+          <p>웹의 기본 구조를 담당하며, 반응형 웹과 시맨틱 마크업에 능숙합니다.</p>
+        </div>
+      </div>
+      <div class="tech-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png" alt="CSS3 아이콘" />
+        <div class="tech-desc">
+          <h3>CSS3</h3>
+          <p>웹의 스타일링을 담당하며, 감각적이게 디자인합니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="java" class="tab-content">
+      <div class="tech-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="Java 아이콘" />
+        <div class="tech-desc">
+          <h3>Java</h3>
+          <p>동적인 사용자 인터페이스 구현과 DOM 조작, 이벤트 처리에 자신 있습니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="photoshop" class="tab-content">
+      <div class="tech-item">
+        <img src="./ps.png" alt="포토샵 아이콘" />
+        <div class="tech-desc">
+          <h3>Adobe Photoshop</h3>
+          <p>이미지 편집, 보정, 합성 작업에 능숙하며, 웹용 그래픽 제작 경험이 풍부합니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="illustrator" class="tab-content">
+      <div class="tech-item">
+        <img src="./ill.png" alt="일러스트 아이콘" />
+        <div class="tech-desc">
+          <h3>Adobe Illustrator</h3>
+          <p>벡터 그래픽 디자인, 로고 제작, 아이콘 디자인 등 다양한 그래픽 작업을 수행합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <div class="container">
+        <h1>진행한 프로젝트</h1>
+        <section class="portfolio-section">
+            <h2>프로젝트</h2>
+            <img 
+                src="./portfolio-preview.png.png" 
+                alt="프로젝트 미리보기" 
+                class="portfolio-image"
+                onclick="window.open('https://jung128.github.io/27/last.html', '_blank')"
+            >
+            <img 
+                src="./cap.png" 
+                alt="프로젝트 미리보기" 
+                class="portfolio-image"
+                onclick="window.open('https://jung128.github.io/project/index.html', '_blank')"
+            >
+            <p>이미지를 클릭하면 자세히 보실 수 있습니다.</p>
+        </section>
+    </div>
+
+    <section style="margin-top: 32px; margin-bottom: 0;">
+        <h2 style="text-align:center; font-size:2em; color:#2563eb; margin-bottom:18px;">프로젝트 예시</h2>
+        <div class="project-cards">
+            <div class="project-card">
+                <div class="project-card-title">
+                    <span>👤</span> 자기소개 홈페이지 제작
+                </div>
+                <ul>
+                    <li>간단한 프로필, 경력, 기술 스택, 연락처 등을 담은 개인 홈페이지</li>
+                    <li>간단한 인터랙션(버튼 클릭, 이미지 슬라이드 등) 적용</li>
+                    <li>반응형 웹 기본 구현 가능</li>
+                </ul>
+            </div>
+            <div class="project-card">
+                <div class="project-card-title">
+                    <span>💼</span> 소규모 비즈니스용 랜딩 페이지
+                </div>
+                <ul>
+                    <li>제품이나 서비스 소개를 위한 단일 페이지</li>
+                    <li>이미지, 텍스트, 버튼 배치 및 간단한 애니메이션 효과</li>
+                    <li>문의 폼(간단한 자바스크립트 유효성 검사 포함) 추가 가능</li>
+                </ul>
+            </div>
+            <div class="project-card">
+                <div class="project-card-title">
+                    <span>🖼️</span> 포트폴리오 웹사이트 제작
+                </div>
+                <ul>
+                    <li>프로젝트 소개, 작업물 갤러리, 연락처 등을 한눈에 보여주는 사이트</li>
+                    <li>자바스크립트로 필터링, 탭 메뉴 등 간단한 기능 구현</li>
+                </ul>
+            </div>
+            <div class="project-card">
+                <div class="project-card-title">
+                    <span>📰</span> 블로그 또는 뉴스레터 템플릿 제작
+                </div>
+                <ul>
+                    <li>정적인 글과 이미지 중심의 페이지 제작</li>
+                    <li>기본적인 스타일링과 레이아웃 조정</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+  <!-- <section class="contact-section">
+    <h2>연락처</h2>
+    <p class="instagram">
+      <a href="https://www.instagram.com/gumangguweb?igsh=NmFhbmlwMndod3M2&utm_source=qr" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-instagram" style="font-size:28px; color:#222;"></i>
+      </a>
+    </p>
+  </section> -->
+</main>
+
+<footer>
+  <p>© 2025 구맹구 (gumanggu). All rights reserved.</p>
+</footer>
+
+<script>
+  // 탭 메뉴 기능
+  const tabs = document.querySelectorAll('.tab');
+  const contents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // 탭 활성화
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // 콘텐츠 전환
+      const target = tab.getAttribute('data-tab');
+      contents.forEach(c => {
+        if (c.id === target) {
+          c.classList.add('active');
+        } else {
+          c.classList.remove('active');
+        }
+      });
+    });
+  });
+
+  // 타이핑 효과
+  const nameText = "구맹구 (gumanggu)";
+  let i = 0;
+  function typing() {
+    if (i <= nameText.length) {
+      document.getElementById("typing-name").textContent = nameText.slice(0, i);
+      i++;
+      setTimeout(typing, 80);
+    } else {
+      // 이름 타이핑 끝나면 소개 페이드인
+      document.getElementById("fade-desc").style.opacity = 1;
+    }
+  }
+  typing();
+</script>
+
+</body>
+</html>
